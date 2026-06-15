@@ -1,0 +1,277 @@
+{
+  "name": {
+    "first": "Vaibhav",
+    "last": "Khushalani",
+    "full": "Vaibhav Khushalani"
+  },
+  "email": "vaibhavkhush124@gmail.com",
+  "tagline": "Building cinematic digital experiences with modern web technologies & AI.",
+  "description": "Building cinematic digital experiences, scalable systems, and AI-powered products with modern web technologies.",
+  "roles": {
+    "short": "Software Developer",
+    "detailed": "Full-Stack Engineer · AI Systems · System Design"
+  },
+  "location": {
+    "based": "India",
+    "availability": "Worldwide"
+  },
+  "available": true,
+  "bio": "Full Stack Engineer with 4+ years of experience building scalable web and AI powered systems using MERN, Next.js, and Python. Specialized in microservices, high performance APIs, and production ready architectures with a strong focus on scalability, performance, and clean system design. Experienced across the full stack from frontend architecture to backend systems, Redis caching, async processing, and AI platforms powered by FastAPI and LangChain.",
+  "stats": [
+    {
+      "value": "4+",
+      "label": "Years Experience"
+    },
+    {
+      "value": "20+",
+      "label": "Projects Completed"
+    },
+    {
+      "value": "3",
+      "label": "Companies"
+    }
+  ],
+  "skills": [
+    "Full Stack Engineer",
+    "AI Builder",
+    "Problem Solver",
+    "System Designer",
+    "MERN Stack",
+    "Next.js Dev",
+    "Python Dev",
+    "Microservices",
+    "Open Source",
+    "API Architect",
+    "LangChain",
+    "FastAPI"
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "role": "Software Developer",
+      "company": "Kylo Apps",
+      "companyShort": "KYLO APPS",
+      "type": "Full-time",
+      "location": "Delhi, India",
+      "period": "Jan 2022",
+      "periodEnd": "Mar 2023",
+      "bullets": [
+        "Built reusable React.js components and React Native features, reducing development time by 20% and improving UI performance across multiple modules.",
+        "Improved frontend performance using lazy loading, memoization, and code splitting.",
+        "Built and deployed full-stack MERN applications including dashboards, admin panels, and REST APIs."
+      ],
+      "desc": "Worked on frontend and full-stack development using React.js, React Native, and MERN stack technologies. Built reusable UI components, optimized application performance, and developed dashboards, admin panels, and REST APIs.",
+      "tech": [
+        "React.js",
+        "React Native",
+        "JavaScript",
+        "CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB"
+      ]
+    },
+    {
+      "id": 2,
+      "role": "Full Stack Developer",
+      "company": "Sellers Commerce",
+      "companyShort": "SELLERS COMMERCE",
+      "type": "Full-time",
+      "location": "Hyderabad, India",
+      "period": "Mar 2023",
+      "periodEnd": "Jul 2025",
+      "bullets": [
+        "Led Catalog Sync, a high-throughput data pipeline automating product ingestion from FTP to Shopify, processing 100k+ SKUs per run and reducing manual effort 80%.",
+        "Delivered microfrontend architecture via shared NPM packages across 5+ product teams, accelerating release cycles 30%.",
+        "Boosted Core Web Vitals (LCP, CLS, FID) to passing thresholds using SSR, ISR, lazy loading, code splitting, and Redis caching.",
+        "Designed RESTful APIs with Node.js; integrated Stripe payments, Shopify Storefront API, automated billing and onboarding workflows."
+      ],
+      "desc": "Led Catalog Sync pipeline processing 100k+ SKUs, cutting manual effort 80%. Microfrontend architecture across 5+ teams. Core Web Vitals optimized via SSR, ISR, Redis. Stripe + Shopify API integrations.",
+      "tech": [
+        "Next.js",
+        "React.js",
+        "Node.js",
+        "Redis",
+        "MongoDB",
+        "AWS",
+        "Docker",
+        "Stripe"
+      ]
+    },
+    {
+      "id": 3,
+      "role": "Full Stack Developer",
+      "company": "Hestabit Technologies",
+      "companyShort": "HESTABIT",
+      "type": "Full-time",
+      "location": "Noida, India",
+      "period": "Jul 2025",
+      "periodEnd": "May 2026",
+      "bullets": [
+        "Architected AI-powered creator platform using Node.js, React.js & FastAPI; LLM agents simulate creator tone for automated Instagram DMs, boosting engagement 40%.",
+        "Built scalable interview assessment platform with Node.js microservices and sandboxed multi-language code execution (C, C++, Java, Python).",
+        "Implemented BullMQ + Redis queue system for async job processing, cutting API response latency 60%.",
+        "Enforced platform security via JWT, RBAC, sandboxed execution environments, and real-time activity monitoring."
+      ],
+      "desc": "AI-powered creator platform with LLM agents boosting engagement 40%. Interview assessment platform with sandboxed multi-language code execution. BullMQ + Redis cutting latency 60%. JWT, RBAC, real-time monitoring.",
+      "tech": [
+        "React.js",
+        "Node.js",
+        "FastAPI",
+        "Redis",
+        "BullMQ",
+        "MongoDB",
+        "Python"
+      ]
+    },
+    {
+      "id": 4,
+      "role": "Software Developer L3",
+      "company": "Forrester Research",
+      "companyShort": "FORRESTER",
+      "type": "Full-time",
+      "location": "India",
+      "period": "May 2026",
+      "periodEnd": "Present",
+      "bullets": [
+        "Developed AI-driven enterprise workflows using Python and React.js.",
+        "Enhanced data pipelines and automation scripts to support research operations.",
+        "Collaborated on building scalable backend services for analytics and content delivery."
+      ],
+      "desc": "Software Developer Level 3 working on AI-based applications using Python and React.js.",
+      "tech": [
+        "Python",
+        "React.js",
+        "AI",
+        "Docker",
+        "AWS",
+        "MongoDB",
+        "Node.js"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Taj Mahal Motion Experience",
+      "subtitle": "Cinematic 3D Web Experience",
+      "type": "Creative Web Experience",
+      "link": "http://vaibhav-create.vercel.app/projects/tajmahal",
+      "image": "/assets/project-tajmahal.png",
+      "tech": [
+        "Next.js",
+        "Three.js",
+        "GSAP",
+        "React Three Fiber",
+        "JavaScript"
+      ],
+      "desc": "A cinematic web experience inspired by the Taj Mahal, featuring smooth image-sequence animations, immersive scrolling interactions, and visually rich storytelling. Developed using Next.js, Three.js, and GSAP with a strong focus on performance and user engagement."
+    },
+    {
+      "id": 2,
+      "title": "ArtGenio",
+      "subtitle": "AI Prompt Marketplace & Creator Platform",
+      "type": "SaaS",
+      "link": "https://artgenio.com/",
+      "image": "/assets/project-artgenio.png",
+      "tech": [
+        "Next.js",
+        "MongoDB",
+        "NextAuth",
+        "Google Gemini API",
+        "Razorpay",
+        "PayPal"
+      ],
+      "desc": "Full-scale AI-powered marketplace for influencers and businesses. Features a subscription-based Creator Hub with 6 AI tools,Payment integration support for both international and domestic payments, scalable backend with MongoDB, and a complete admin dashboard for managing users, prompts, and analytics."
+    },
+    {
+      "id": 3,
+      "title": "EasyFolio",
+      "subtitle": "Multi-User Portfolio Platform",
+      "type": "Platform",
+      "link": "https://easyfolio.wuwb.in",
+      "image": "/assets/project-easyfolio.png",
+      "tech": [
+        "Next.js",
+        "TypeScript",
+        "Drizzle ORM",
+        "Turso (libSQL)",
+        "NextAuth",
+        "Cloudinary"
+      ],
+      "desc": "Full-stack multi-user portfolio platform enabling dynamic, database-driven portfolios with multiple themes. Role-based admin system, real-time content editing, PDF CV parsing, portfolio completion tracking."
+    },
+    {
+      "id": 4,
+      "title": "Spider-Noir",
+      "subtitle": "Cinematic 3D Web Experience",
+      "type": "Creative Web Experience",
+      "link": "http://vaibhav-create.vercel.app/projects/spider-noir",
+      "image": "/assets/project-spider-noir.png",
+      "tech": [
+        "Next.js",
+        "Three.js",
+        "GSAP",
+        "React Three Fiber",
+        "JavaScript"
+      ],
+      "desc": "A cinematic web experience inspired by the Spider-Noir universe, featuring smooth image-sequence animations, immersive scrolling interactions, and visually rich storytelling. Developed using Next.js, Three.js, and GSAP with a strong focus on performance and user engagement."
+    }
+  ],
+  "publications": [
+    {
+      "id": 1,
+      "title": "Building a Real-Time Multiplayer Tic Tac Toe with Next.js & Socket.IO",
+      "platform": "Medium",
+      "year": "2026",
+      "link": "https://medium.com/@vaibhavkhushalani/building-a-real-time-multiplayer-tic-tac-toe-with-next-js-socket-io-open-source-fc0804a940a5",
+      "desc": "Deep dive into building a real-time multiplayer game using WebSockets and a server-authoritative architecture. Covers room-based communication, state synchronization, and handling real-time events using Socket.IO."
+    },
+    {
+      "id": 2,
+      "title": "Optimizing Node.js Performance with Clustering",
+      "platform": "Medium",
+      "year": "2025",
+      "link": "https://medium.com/@vaibhavkhushalani/optimizing-node-js-performance-with-clustering-88e5a9651c9b",
+      "desc": "Explains how to improve Node.js performance using clustering to utilize multi-core systems. Covers process management, scaling strategies, and performance optimization techniques."
+    },
+    {
+      "id": 3,
+      "title": "Stripe Subscriptions Simplified with React & Node.js",
+      "platform": "Medium",
+      "year": "2024",
+      "link": "https://medium.com/@vaibhavkhushalani/stripe-subscriptions-simplified-boosting-revenue-with-react-and-node-js-c3467169b5d7",
+      "desc": "Guide to implementing subscription-based payment systems with Stripe. Covers billing flows, recurring payments, and integration with full-stack applications."
+    },
+    {
+      "id": 4,
+      "title": "ArtGenio Creator Hub - Building AI-Powered Content Tools",
+      "platform": "Medium",
+      "year": "2026",
+      "link": "https://medium.com/@vaibhavkhushalani/artgenio-creator-hub-197ad615f4d3",
+      "desc": "Explains the architecture and implementation of an AI-powered creator platform, including prompt generation, content tools, and integration with modern AI APIs."
+    }
+  ],
+  "socials": [
+    {
+      "label": "GitHub",
+      "href": "https://github.com/VaibhavKhushalani"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/vaibhav-khushalani-760217136"
+    },
+    {
+      "label": "Medium",
+      "href": "https://medium.com/@vaibhavkhushalani"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/vaibhav.create"
+    },
+    {
+      "label": "YouTube",
+      "href": "https://www.youtube.com/@vaibhav.create"
+    }
+  ]
+}

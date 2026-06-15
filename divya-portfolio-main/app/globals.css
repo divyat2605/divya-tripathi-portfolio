@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* ─── Brand tokens ─────────────────────────────────────── */
+:root {
+  /* Hero gradient - exact reference image */
+  --hero-start: #f8d5b0;
+  --hero-mid:   #f5954a;
+  --hero-end:   #e85500;
+
+  /* Accent */
+  --accent:       #f7931e;
+  --accent-hover: #e07b10;
+
+  /* Text */
+  --text-primary: #1a0800;
+  --text-muted:   #4a2800;
+  --text-on-dark: #f5f5f5;
+
+  /* Surfaces */
+  --surface-white: #ffffff;
+  --surface-black: #0a0a0a;
+  --surface-amber: #fff7ed;
+
+  /* Status */
+  --status-available: #22c55e;
+
+  /* Text dark token */
+  --text-dark: #1e1e1e;
+
+  /* Navbar */
+  --navbar-text:    #1a0800;
+  --email-btn-bg:   #ffffff;
+  --email-btn-text: #1a0800;
+
+  /* Type scale */
+  --hero-name-size: clamp(4.5rem, 13vw, 12rem);
+  --text-body:  clamp(0.9rem, 1.2vw, 1.05rem);
+  --text-small: 0.72rem;
+  --hero-role-size: clamp(0.75rem, 1.2vw, 0.875rem);
+
+  /* ─── shadcn var bridge (maps to brand tokens) ── */
+  --background:   var(--surface-white);
+  --foreground:   var(--text-primary);
+  --primary:      var(--text-primary);
+  --primary-foreground: var(--surface-white);
+  --ring:         var(--accent);
+  --radius:       9999px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ─── Base ──────────────────────────────────────────────── */
+html, body {
+  height: 100%;
+}
+
+html.home-scroll-locked,
+body.home-scroll-locked {
+  overflow: hidden;
+}
+
+body {
+  background: var(--background);
+  color:      var(--foreground);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+/* ─── Hide scrollbar ─────────────────────────────────────── */
+body.home-scroll-locked main::-webkit-scrollbar { display: none; }
+body.home-scroll-locked main { scrollbar-width: none; -ms-overflow-style: none; }
+
+@media (max-width: 767px) {
+  :root {
+    --hero-name-size: clamp(3rem, 10vw, 5rem);
+  }
+
+  /* Override inline 100vh - Chrome mobile toolbar hides bottom content */
+  html.home-scroll-locked,
+  body.home-scroll-locked { height: 100svh !important; }
+  body.home-scroll-locked main { height: 100svh !important; }
+}

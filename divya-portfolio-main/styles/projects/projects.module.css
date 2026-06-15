@@ -1,0 +1,493 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: clip;
+  background:
+    linear-gradient(180deg, #120905 0%, #070707 42%, #050505 100%);
+  color: var(--text-on-dark);
+  isolation: isolate;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 6%, rgba(247, 147, 30, 0.28), transparent 24rem),
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.1), transparent 20rem),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: auto, auto, 4.5rem 4.5rem, 4.5rem 4.5rem;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  background: rgba(5, 5, 5, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.backLink,
+.emailLink,
+.cardAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 2.45rem;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease,
+    transform 0.22s ease;
+}
+
+.backLink {
+  min-width: 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.backLink span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emailLink {
+  flex: 0 0 auto;
+  padding: 0 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.backLink:hover,
+.emailLink:hover {
+  color: #ffffff;
+  border-color: rgba(247, 147, 30, 0.55);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 28rem);
+  align-items: center;
+  gap: clamp(1.75rem, 6vw, 5rem);
+  width: min(104rem, 100%);
+  min-height: clamp(24rem, 48svh, 34rem);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vh, 4rem) clamp(1rem, 4vw, 3rem) clamp(1.6rem, 3vw, 2.5rem);
+}
+
+.heroCopy {
+  max-width: 48rem;
+}
+
+.kicker {
+  margin: 0 0 0.9rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  max-width: 10ch;
+  color: #ffffff;
+  font-size: clamp(2.7rem, 5vw, 5.25rem);
+  font-weight: 850;
+  line-height: 0.92;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.lede {
+  max-width: 36rem;
+  margin: 1.15rem 0 0;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: clamp(0.96rem, 1.1vw, 1.06rem);
+  line-height: 1.75;
+}
+
+.metrics {
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.metric {
+  display: grid;
+  gap: 0.35rem;
+  min-height: 6.5rem;
+  align-content: center;
+  padding: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metric:last-child {
+  border-bottom: 0;
+}
+
+.metric strong {
+  color: var(--accent);
+  font-family: var(--font-baloo), sans-serif;
+  font-size: clamp(2rem, 3.4vw, 3.35rem);
+  line-height: 0.88;
+}
+
+.metric span,
+.cardMeta {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1px;
+  width: min(116rem, calc(100% - clamp(2rem, 8vw, 6rem)));
+  margin: 0 auto clamp(3rem, 8vw, 7rem);
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.card {
+  display: grid;
+  grid-template-rows: 19rem 1fr;
+  min-height: 42rem;
+  background: #0a0a0a;
+}
+
+.mediaLink {
+  position: relative;
+  display: block;
+  min-height: 0;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+
+.cardImage {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.01);
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.card:hover .cardImage {
+  filter: saturate(1.12) contrast(1.04);
+  transform: scale(1.06);
+}
+
+.mediaShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.72)),
+    radial-gradient(circle at 18% 18%, rgba(247, 147, 30, 0.28), transparent 14rem);
+}
+
+.cardNumber {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.7rem;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  padding: clamp(1.1rem, 2vw, 1.6rem);
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+}
+
+.cardMeta span:first-child {
+  color: var(--accent);
+}
+
+.card h2 {
+  margin: 0.85rem 0 0;
+  min-height: 2.05em;
+  color: #ffffff;
+  font-size: clamp(1.65rem, 2.6vw, 2.75rem);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.card p {
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.95rem;
+  line-height: 1.72;
+  min-height: 8.6em;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.4rem;
+  margin-top: 1.2rem;
+  min-height: 4.9rem;
+}
+
+.stack span {
+  max-width: 100%;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid rgba(247, 147, 30, 0.22);
+  border-radius: 4px;
+  background: rgba(247, 147, 30, 0.08);
+  color: rgba(255, 185, 97, 0.92);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardAction {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 0 1rem;
+  border: 1px solid rgba(247, 147, 30, 0.45);
+  background: rgba(247, 147, 30, 0.1);
+  color: var(--accent);
+}
+
+.cardAction:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #070707;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1060px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 2.5rem;
+    gap: 1.75rem;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .metric {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 0;
+  }
+
+  .metric:last-child {
+    border-right: 0;
+  }
+
+  .grid {
+    width: min(100%, calc(100% - 2rem));
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1060px) {
+  .hero h1 {
+    max-width: 14ch;
+    font-size: clamp(3rem, 8vw, 5.2rem);
+  }
+
+  .card {
+    grid-template-rows: 17.5rem 1fr;
+  }
+
+  .card h2 {
+    font-size: clamp(1.55rem, 3.4vw, 2.45rem);
+  }
+}
+
+@media (max-width: 720px) {
+  .header {
+    gap: 0.75rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .backLink,
+  .emailLink {
+    font-size: 0.64rem;
+  }
+
+  .hero {
+    padding-top: 2rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1.4rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.35rem, 11vw, 3.75rem);
+    max-width: 10ch;
+  }
+
+  .metrics,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics {
+    width: 100%;
+  }
+
+  .metric {
+    min-height: 6.2rem;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .grid {
+    gap: 0.9rem;
+    width: calc(100% - 2rem);
+    margin-bottom: 2.5rem;
+    background: transparent;
+  }
+
+  .card {
+    grid-template-rows: auto 1fr;
+    min-height: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mediaLink {
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+  }
+
+  .cardBody {
+    padding: 1rem;
+  }
+
+  .cardMeta {
+    gap: 0.35rem 0.55rem;
+    font-size: 0.6rem;
+    line-height: 1.45;
+  }
+
+  .cardMeta span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card h2 {
+    margin-top: 0.75rem;
+    font-size: clamp(1.45rem, 7vw, 2.25rem);
+    line-height: 1;
+  }
+
+  .card h2,
+  .card p,
+  .stack {
+    min-height: 0;
+  }
+
+  .card p {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.62;
+    -webkit-line-clamp: 4;
+  }
+
+  .stack {
+    gap: 0.35rem;
+    margin-top: 1rem;
+  }
+
+  .stack span {
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+  }
+
+  .cardAction {
+    width: 100%;
+    margin-top: 1.2rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .emailLink {
+    min-height: 2.2rem;
+    padding: 0 0.75rem;
+  }
+
+  .backLink span {
+    max-width: 10.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.15rem, 13vw, 3.2rem);
+  }
+
+  .lede {
+    font-size: 0.94rem;
+  }
+
+  .metric {
+    min-height: 5.5rem;
+    padding: 1rem;
+  }
+
+  .grid {
+    width: calc(100% - 1.5rem);
+  }
+
+  .mediaLink {
+    aspect-ratio: 4 / 3;
+  }
+
+  .cardBody {
+    padding: 0.9rem;
+  }
+
+  .card h2 {
+    font-size: clamp(1.32rem, 8vw, 1.9rem);
+  }
+
+  .card p {
+    font-size: 0.86rem;
+  }
+}
