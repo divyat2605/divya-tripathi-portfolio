@@ -45,7 +45,7 @@
   z-index: 0;
 }
 
-/* ── Video canvas (footer phase background) ───────────── */
+/* ── Desktop footer image (replaces the old video background) ───────────── */
 .glCanvas {
   position: absolute;
   inset: 0;
@@ -54,10 +54,8 @@
   display: block;
   width: 100%;
   height: 100%;
-}
-
-.hiddenVideo {
-  display: none;
+  object-fit: cover;
+  object-position: center center;
 }
 
 /* ── Mobile background image (footer phase - mobile only) ── */

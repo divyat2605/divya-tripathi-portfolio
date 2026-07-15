@@ -3,7 +3,6 @@
 
 import { useEffect, useRef, Fragment } from 'react'
 import Image from 'next/image'
-import * as THREE from 'three'
 import { gsap } from '@/lib/gsap'
 import {
   FaGithub, FaLinkedinIn, FaMedium, FaInstagram, FaYoutube, FaEnvelope,
@@ -29,44 +28,6 @@ const MOBILE_SOCIAL_ICONS = {
   Instagram: <FaInstagram size={20} />,
 }
 const HERO_SOCIAL_LABELS = ['GitHub', 'LinkedIn', 'Instagram']
-
-const VID_VERT = `
-  varying vec2 vUv;
-  void main() {
-    vUv = uv;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-  }
-`
-
-const VID_FRAG = `
-  uniform sampler2D uVideo;
-  uniform float uOpacity;
-  uniform float uVideoAspect;
-  uniform float uCanvasAspect;
-  varying vec2 vUv;
-  void main() {
-    vec2 uv = vUv;
-    if (uCanvasAspect > uVideoAspect) {
-      float s = uVideoAspect / uCanvasAspect;
-      uv.y = (vUv.y - 0.5) * s + 0.5;
-    } else {
-      float s = uCanvasAspect / uVideoAspect;
-      uv.x = (vUv.x - 0.5) * s + 0.5;
-    }
-    vec4 tex = texture2D(uVideo, uv);
-    float fadeY =
-      smoothstep(0.0, 0.05, uv.y) *
-      smoothstep(1.0, 0.95, uv.y);
-    float alpha = fadeY * uOpacity;
-    float lum = dot(tex.rgb, vec3(0.299, 0.587, 0.114));
-    vec3 col = mix(vec3(lum), tex.rgb, 0.72);
-    float vx = smoothstep(0.0, 0.38, abs(uv.x - 0.5) * 2.0);
-    vec3 dark = vec3(0.008, 0.008, 0.008);
-    col = mix(col, dark, vx * 0.82);
-    col *= 0.68;
-    gl_FragColor = vec4(col, alpha);
-  }
-`
 
 function getGreeting() {
   const h = new Date().getHours()
@@ -103,8 +64,6 @@ export default function PublicationsFooterSection() {
   const interstitialRef = useRef(null)
 
   // footer
-  const canvasRef         = useRef(null)
-  const videoSrcRef       = useRef(null)
   const footerContentRef  = useRef(null)
   const leftRef         = useRef(null)
   const rightRef        = useRef(null)
@@ -114,90 +73,10 @@ export default function PublicationsFooterSection() {
   useEffect(() => {
     const wrapper       = wrapperRef.current
     const sticky        = stickyRef.current
-    const canvas        = canvasRef.current
-    const videoEl       = videoSrcRef.current
     const scroller      = document.querySelector('main')
     if (!wrapper || !sticky || !scroller) return
 
     const isMobile = window.innerWidth < 768
-
-    let renderer, vidUni, rafId, videoPlaying = false
-    let onMouseMove = () => {}, onResize = () => {}
-
-    if (!isMobile && canvas && videoEl) {
-      // ── Three.js video setup ────────────────────────────────
-      const W = sticky.offsetWidth
-      const H = sticky.offsetHeight
-
-      renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false })
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-      renderer.setSize(W, H)
-      renderer.setClearColor(0x000000, 0)
-
-      const scene  = new THREE.Scene()
-      const camera = new THREE.OrthographicCamera(-W / 2, W / 2, H / 2, -H / 2, 0.1, 100)
-      camera.position.z = 10
-
-      videoEl.src       = '/assets/footer-video.mp4'
-      videoEl.muted     = true
-      videoEl.playsInline = true
-      videoEl.loop      = true
-      videoEl.preload   = 'auto'
-
-      const vidTex = new THREE.VideoTexture(videoEl)
-      vidTex.minFilter = THREE.LinearFilter
-      vidTex.magFilter = THREE.LinearFilter
-
-      vidUni = {
-        uVideo:       { value: vidTex },
-        uOpacity:     { value: 0 },
-        uVideoAspect: { value: 16 / 9 },
-        uCanvasAspect: { value: W / H },
-      }
-      videoEl.addEventListener('loadedmetadata', () => {
-        if (videoEl.videoWidth && videoEl.videoHeight)
-          vidUni.uVideoAspect.value = videoEl.videoWidth / videoEl.videoHeight
-      }, { once: true })
-      const vidMat = new THREE.ShaderMaterial({
-        uniforms: vidUni,
-        vertexShader: VID_VERT,
-        fragmentShader: VID_FRAG,
-        transparent: true,
-      })
-      const vidMesh = new THREE.Mesh(new THREE.PlaneGeometry(W * 1.08, H * 1.08), vidMat)
-      vidMesh.position.z = 1
-      scene.add(vidMesh)
-
-      const mx = { tx: 0, ty: 0, x: 0, y: 0 }
-      onMouseMove = function(e) {
-        const r = sticky.getBoundingClientRect()
-        mx.tx = (e.clientX - r.left) / r.width  - 0.5
-        mx.ty = (e.clientY - r.top)  / r.height - 0.5
-      }
-      sticky.addEventListener('mousemove', onMouseMove)
-
-      onResize = function() {
-        const w = sticky.offsetWidth
-        const h = sticky.offsetHeight
-        renderer.setSize(w, h)
-        camera.left   = -w / 2; camera.right  = w / 2
-        camera.top    =  h / 2; camera.bottom = -h / 2
-        camera.updateProjectionMatrix()
-        vidUni.uCanvasAspect.value = w / h
-      }
-      window.addEventListener('resize', onResize)
-
-      function tick() {
-        rafId = requestAnimationFrame(tick)
-        mx.x += (mx.tx - mx.x) * 0.04
-        mx.y += (mx.ty - mx.y) * 0.04
-        vidMesh.position.x = mx.x * 14
-        vidMesh.position.y = mx.y * -8
-        vidTex.needsUpdate = true
-        renderer.render(scene, camera)
-      }
-      tick()
-    }
 
     // ── Publication entry animation ───────────────────────────
     let pubAnimDone = false
@@ -281,22 +160,11 @@ export default function PublicationsFooterSection() {
         const interOut = Math.max(0, Math.min(1, (p - 0.54) / 0.14))
         gsap.set(interstitialRef.current, { opacity: interIn * (1 - interOut), pointerEvents: 'none' })
 
-        // ── Phase 3: sine-eased crossfade image → video (p 0.65 → 0.92) ──
-        // Sine ease: both curves share same t so they are perceptually matched
+        // ── Phase 3: keep the desktop image visible while the floating image transitions (p 0.65 → 0.92) ──
         const xfadeRaw = Math.max(0, Math.min(1, (p - 0.65) / 0.27))
         const xfade    = 0.5 - 0.5 * Math.cos(Math.PI * xfadeRaw)
 
         gsap.set(imageWrapRef.current, { width: w, x: centerX, opacity: 1 - xfade })
-        vidUni.uOpacity.value = xfade
-
-        if (xfade > 0.04 && !videoPlaying) {
-          videoPlaying = true
-          videoEl.play().catch(() => {})
-        } else if (xfade <= 0.04 && videoPlaying) {
-          videoPlaying = false
-          videoEl.pause()
-          videoEl.currentTime = 0
-        }
       }
 
       // ── Footer text fades in ──────────────────────────────
@@ -313,11 +181,7 @@ export default function PublicationsFooterSection() {
     onScroll()
 
     return () => {
-      if (rafId) cancelAnimationFrame(rafId)
       scroller.removeEventListener('scroll', onScroll)
-      sticky.removeEventListener('mousemove', onMouseMove)
-      window.removeEventListener('resize', onResize)
-      if (renderer) renderer.dispose()
     }
   }, [])
 
@@ -327,9 +191,16 @@ export default function PublicationsFooterSection() {
     <div ref={wrapperRef} className={styles.wrapper}>
       <div ref={stickyRef} className={styles.sticky}>
 
-        {/* ── Video canvas (footer background - desktop) ── */}
-        <canvas ref={canvasRef} className={styles.glCanvas} />
-        <video ref={videoSrcRef} className={styles.hiddenVideo} />
+        {/* ── Desktop footer image (replaces the old video background) ── */}
+        <Image
+          src="/assets/footer-landscape.png"
+          alt=""
+          fill
+          quality={100}
+          className={styles.glCanvas}
+          sizes="100vw"
+          priority={false}
+        />
 
         {/* ── Mobile background image (footer phase - mobile only) ── */}
         <div className={styles.mobileFooterBg}>
