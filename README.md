@@ -8,7 +8,8 @@ I like systems that think before they act. Somewhere between a FastAPI route and
 
 This is my personal site: part portfolio, part proof-of-work, built on a cinematic template and rewired to actually be mine.
 
-**Live:** [https://divya-tripathi-portfolio-five.vercel.app/] **GitHub:** [divyat2605/cinematic-portfolio](https://github.com/divyat2605/divya-tripathi-portfolio)
+**Live:** [Live Link](https://divya-tripathi-portfolio-five.vercel.app/) 
+**GitHub:** [divyat2605/cinematic-portfolio](https://github.com/divyat2605/divya-tripathi-portfolio)
 
 <img src="divya-portfolio-main/public/assets/divider.svg" alt="" width="100%"/>
 
