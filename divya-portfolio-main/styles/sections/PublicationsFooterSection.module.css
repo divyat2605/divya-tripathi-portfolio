@@ -45,7 +45,21 @@
   z-index: 0;
 }
 
-/* ── Desktop footer image (replaces the old video background) ───────────── */
+/* ── Video canvas (footer phase background) ───────────── */
+.glCanvasWrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.glCanvasInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .glCanvas {
   position: absolute;
   inset: 0;
@@ -54,13 +68,20 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center center;
+}
+
+.hiddenVideo {
+  display: none;
 }
 
 /* ── Mobile background image (footer phase - mobile only) ── */
 .mobileFooterBg {
   display: none;
+}
+.mobileFooterBgInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 .mobileDarkOverlay {
   display: none;
@@ -99,6 +120,12 @@
   will-change: transform, opacity, width;
   z-index: 2;
   overflow: hidden;
+}
+
+.imageInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .imageEl {
@@ -672,6 +699,33 @@
   opacity: 0;
 }
 
+.interstitial::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--surface-black) 42%, transparent) 0%,
+    transparent 34%,
+    transparent 66%,
+    color-mix(in srgb, var(--surface-black) 42%, transparent) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.interPanel {
+  position: relative;
+  z-index: 1;
+  background: color-mix(in srgb, var(--surface-black) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--surface-white) 16%, transparent);
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--surface-black) 35%, transparent);
+}
+
 .interstitialLeft {
   position: absolute;
   top: 50%;
@@ -701,8 +755,9 @@
   font-weight: 900;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--text-on-dark);
   line-height: 1;
+  text-shadow: 0 2px 10px color-mix(in srgb, var(--surface-black) 55%, transparent);
 }
 
 .interDividerH {
@@ -719,6 +774,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+.interstitialRight .interPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   gap: 1.2rem;
 }
 
@@ -732,9 +793,10 @@
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 900;
   letter-spacing: -0.06em;
-  color: #fff;
+  color: var(--text-on-dark);
   line-height: 1;
   font-family: var(--font-geist-mono), monospace;
+  text-shadow: 0 2px 10px color-mix(in srgb, var(--surface-black) 55%, transparent);
 }
 
 .interNumLabel {
@@ -742,9 +804,10 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
+  color: color-mix(in srgb, var(--text-on-dark) 92%, transparent);
   line-height: 1.6;
   text-align: right;
+  text-shadow: 0 1px 6px color-mix(in srgb, var(--surface-black) 50%, transparent);
 }
 
 .interDividerV {

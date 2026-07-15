@@ -71,14 +71,40 @@
 }
 
 .counter {
+  display: flex;
+  align-items: center;
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.72rem;
   letter-spacing: 0.06em;
+  pointer-events: auto;
 }
 
-.cCur { color: var(--text-dark); font-weight: 700; }
+.cCur,
+.cJump {
+  font: inherit;
+  letter-spacing: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.cCur {
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.cJump {
+  color: rgba(95, 71, 82, 0.28);
+  font-weight: 500;
+}
+
+.cJump:hover {
+  color: var(--accent);
+}
+
 .cSep { color: rgba(95, 71, 82, 0.22); }
-.cTot { color: rgba(95, 71, 82, 0.28); }
 
 /* ── Horizontal track ────────────────────────── */
 .track {
@@ -96,6 +122,7 @@
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
 /* ── Slide background ────────────────────────── */
@@ -161,6 +188,7 @@
   position: absolute;
   inset: 0;
   z-index: 4;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 44%) minmax(0, 1fr);
   align-items: flex-end;
@@ -220,6 +248,7 @@
   letter-spacing: 0.06em;
 }
 
+/* ── Live demo button ────────────────────────── */
 /* ── Live demo button ────────────────────────── */
 .liveBtn {
   display: inline-flex;
