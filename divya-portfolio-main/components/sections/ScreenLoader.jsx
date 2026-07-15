@@ -94,7 +94,7 @@ export default function ScreenLoader({ onDismiss }) {
       <div className={styles.liquidBg} aria-hidden />
 
       <p className={styles.monogram}>
-        VAIBHAV KHUSHALANI
+        DIVYA TRIPATHI
       </p>
 
       <button

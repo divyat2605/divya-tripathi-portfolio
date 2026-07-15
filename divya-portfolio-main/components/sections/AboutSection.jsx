@@ -88,7 +88,7 @@ export default function AboutSection() {
           <div className={styles.photoFrame} data-about-photo>
             <Image
               src="/assets/about.webp"
-              alt="Vaibhav Khushalani"
+              alt="Divya Tripathi"
               fill
               quality={100}
               sizes="(min-width: 768px) 30vw, 100vw"

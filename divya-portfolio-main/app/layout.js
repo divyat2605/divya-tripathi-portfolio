@@ -28,47 +28,47 @@ const dancing = Dancing_Script({
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Vaibhav Khushalani | Full Stack Developer',
-    template: '%s | Vaibhav Khushalani',
+    default: 'Divya Tripathi | Software Engineer',
+    template: '%s | Divya Tripathi',
   },
   description:
-    'Full Stack Engineer with 4+ years building scalable web and AI-powered systems using MERN, Next.js, and Python. Available worldwide for collaborations.',
+    'Aspiring Software Engineer specializing in backend systems, AI/ML, and Retrieval-Augmented Generation (RAG) using Python, FastAPI, and Docker. Available worldwide for opportunities.',
   keywords: [
-    'Vaibhav Khushalani',
-    'Full Stack Developer',
+    'Divya Tripathi',
     'Software Engineer',
-    'MERN Stack',
-    'Next.js Developer',
-    'React Developer',
-    'Node.js',
-    'AI Systems',
+    'Backend Developer',
+    'AI/ML Engineer',
+    'FastAPI Developer',
+    'Python Developer',
+    'LangChain',
+    'RAG Systems',
     'Portfolio',
     'India',
   ],
-  authors: [{ name: 'Vaibhav Khushalani', url: SITE_URL }],
-  creator: 'Vaibhav Khushalani',
+  authors: [{ name: 'Divya Tripathi', url: SITE_URL }],
+  creator: 'Divya Tripathi',
   openGraph: {
     type: 'website',
     locale: 'en_IN',
     url: SITE_URL,
-    siteName: 'Vaibhav Khushalani',
-    title: 'Vaibhav Khushalani | Full Stack Developer',
+    siteName: 'Divya Tripathi',
+    title: 'Divya Tripathi | Software Engineer',
     description:
-      'Full Stack Engineer with 4+ years building scalable web and AI-powered systems using MERN, Next.js, and Python. Available worldwide for collaborations.',
+      'Aspiring Software Engineer specializing in backend systems, AI/ML, and Retrieval-Augmented Generation (RAG) using Python, FastAPI, and Docker. Available worldwide for opportunities.',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Vaibhav Khushalani | Full Stack Developer Portfolio',
+        alt: 'Divya Tripathi | Software Engineer Portfolio',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vaibhav Khushalani | Full Stack Developer',
+    title: 'Divya Tripathi | Software Engineer',
     description:
-      'Full Stack Engineer with 4+ years building scalable web and AI-powered systems using MERN, Next.js, and Python. Available worldwide for collaborations.',
+      'Aspiring Software Engineer specializing in backend systems, AI/ML, and Retrieval-Augmented Generation (RAG) using Python, FastAPI, and Docker. Available worldwide for opportunities.',
     images: ['/opengraph-image'],
   },
   robots: {
@@ -116,16 +116,12 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Person',
-              name: 'Vaibhav Khushalani',
+              name: 'Divya Tripathi',
               url: SITE_URL,
-              email: 'vaibhavkhush124@gmail.com',
-              jobTitle: 'Full Stack Developer',
+              email: 'divya.tripathi.official2605@gmail.com',
+              jobTitle: 'Software Engineer',
               sameAs: [
-                'https://github.com/VaibhavKhushalani',
-                'https://www.linkedin.com/in/vaibhav-khushalani-760217136',
-                'https://medium.com/@vaibhavkhushalani',
-                'https://www.instagram.com/vaibhav.create',
-                'https://www.youtube.com/@vaibhav.create',
+                // add your real GitHub and LinkedIn URLs here
               ],
             }),
           }}

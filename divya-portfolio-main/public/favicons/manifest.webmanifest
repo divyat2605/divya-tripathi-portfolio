@@ -1,14 +1,14 @@
 {
-  "name": "Vaibhav Khushalani",
-  "short_name": "Vaibhav",
-  "description": "Full Stack Developer Portfolio",
+  "name": "Divya Tripathi",
+  "short_name": "Divya",
+  "description": "Software Engineer — Backend & AI/ML Portfolio",
   "dir": "auto",
   "lang": "en-US",
   "display": "standalone",
   "orientation": "any",
   "start_url": "/",
-  "background_color": "#fff",
-  "theme_color": "#fff",
+  "background_color": "#0A1A2F",
+  "theme_color": "#0A1A2F",
   "icons": [
     {
       "src": "/favicons/android-chrome-192x192.png",
