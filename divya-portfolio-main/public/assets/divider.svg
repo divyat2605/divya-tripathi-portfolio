@@ -1,0 +1,16 @@
+<svg viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="divGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F6E7D8"/>
+      <stop offset="50%" stop-color="#C9A6D0"/>
+      <stop offset="100%" stop-color="#6E4C6E"/>
+    </linearGradient>
+  </defs>
+  <path d="M0 20 Q 150 0 300 20 T 600 20 T 900 20 T 1200 20"
+        stroke="url(#divGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <g fill="#C9A6D0">
+    <path d="M300 12 L303 18 L309 20 L303 22 L300 28 L297 22 L291 20 L297 18 Z"/>
+    <path d="M600 8 L603 14 L609 16 L603 18 L600 24 L597 18 L591 16 L597 14 Z"/>
+    <path d="M900 12 L903 18 L909 20 L903 22 L900 28 L897 22 L891 20 L897 18 Z"/>
+  </g>
+</svg>

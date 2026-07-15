@@ -1,12 +1,42 @@
-# Cinematic Portfolio
+<p align="center">
+  <img src="assets/banner.svg" alt="Divya Tripathi — AI/ML Engineer &amp; Backend Developer" width="100%"/>
+</p>
 
-A high-performance personal portfolio built with Next.js 16, GSAP, Three.js, and CSS Modules. Designed to be forked and used as your own.
+# Divya Tripathi — Portfolio
 
-**Live:** [vaibhav-create.vercel.app](https://vaibhav-create.vercel.app) &nbsp;|&nbsp; **GitHub:** [VaibhavKhushalani/cinematic-portfolio](https://github.com/VaibhavKhushalani/cinematic-portfolio)
+I like systems that think before they act. Somewhere between a FastAPI route and a LangGraph node, I found the kind of problem I actually want to spend my career on: making software reason, retrieve, and decide — not just respond.
 
-If this helped you, consider leaving a ⭐ on GitHub.
+This is my personal site: part portfolio, part proof-of-work, built on a cinematic template and rewired to actually be mine.
 
-## Stack
+**Live:** [your-deployed-url] &nbsp;|&nbsp; **GitHub:** [divyat2605/cinematic-portfolio](https://github.com/divyat2605/cinematic-portfolio)
+
+<img src="assets/divider.svg" alt="" width="100%"/>
+
+## About Me
+
+I'm a pre-final year B.Tech CS student at SRM Institute of Science and Technology, Delhi NCR, graduating in 2027. I spend most of my time in the space where agentic AI systems meet real backend engineering — RAG pipelines that need to actually retrieve the right thing, agents that need to actually stop when they should, and APIs that need to hold up under more than a demo's worth of traffic.
+
+My toolkit leans heavily on **FastAPI, PostgreSQL, LangChain/LangGraph, Redis, and Docker** — the boring-but-essential layer that makes "AI-native" products behave like production software instead of a notebook that got lucky. I've picked up this stack across internships at **Vizh AI Solutions, DTU, and QuickGhy**, and sharpened the fundamentals with **200+ LeetCode problems** (mostly in C++). I'm also a **SAP Certified Associate – SAP Generative AI Developer**.
+
+## Things I've Built
+
+<p>
+  <img src="assets/badge-memoryforge.svg" alt="MemoryForge — Agentic RAG API" width="100%"/>
+</p>
+
+An agentic RAG API with LangGraph, FastAPI, Redis, and Qdrant, built around the idea that retrieval should have memory, not just embeddings.
+
+<p>
+  <img src="assets/badge-loanrecovery.svg" alt="Agentic Loan Recovery System" width="100%"/>
+</p>
+
+An explainable AI system for loan recovery risk, using FastAPI, Random Forest, SHAP, and Streamlit, because a risk score nobody can explain isn't a risk score anyone should trust.
+
+Details, links, and write-ups for all of these live on the site itself.
+
+<img src="assets/divider.svg" alt="" width="100%"/>
+
+## Stack (of the site, not the résumé)
 
 | Layer      | Technology                                       |
 | ---------- | ------------------------------------------------ |
@@ -19,7 +49,7 @@ If this helped you, consider leaving a ⭐ on GitHub.
 ## Getting Started
 
 ```bash
-git clone https://github.com/VaibhavKhushalani/cinematic-portfolio.git
+git clone https://github.com/divyat2605/cinematic-portfolio.git
 cd cinematic-portfolio
 npm install
 npm run dev
@@ -34,46 +64,15 @@ npm run build
 npm start
 ```
 
-## Making It Yours
+## Under the Hood
 
-All personal information lives in `data/profile.json`. Open that file and update the following:
+If you're poking around the codebase, here's what actually drives the site:
 
-| Field            | What it controls                                    |
-| ---------------- | --------------------------------------------------- |
-| `name`           | Your full name, shown across all sections           |
-| `email`          | Contact email used in footer and CTA buttons        |
-| `tagline`        | One-line professional tagline shown in the hero     |
-| `description`    | Short description shown in footer and meta tags     |
-| `roles`          | Your role title and detailed specializations        |
-| `location`       | Country and availability (e.g. India, Worldwide)    |
-| `bio`            | Long-form bio shown in the About section            |
-| `stats`          | Key numbers: years of experience, projects, etc.    |
-| `skills`         | Skills shown in the scrolling marquee               |
-| `experience`     | Work history with company, role, bullets, and stack |
-| `projects`       | Project cards with title, description, and links    |
-| `publications`   | Blog posts or articles you have written             |
-| `socials`        | Social profile links (GitHub, LinkedIn, etc.)       |
-
-Website copy that is not personal data (section taglines, CTA text, footer phrases) lives in `data/content.json`. You can leave these as-is or update them to match your tone.
-
-To update colors, open `app/globals.css` and edit the tokens under `:root`. The main ones are `--accent`, `--hero-start`, `--hero-mid`, `--hero-end`, and `--text-primary`.
-
-Update your site URL in `lib/siteConfig.js` before deploying.
-
-## Assets
-
-Replace the files in `public/assets/` with your own:
-
-| File                   | Used in                   | Description                            |
-| ---------------------- | ------------------------- | -------------------------------------- |
-| `about-me.mp4`         | Video Intro               | Full-screen intro video (ambient + main)|
-| `hero.png`             | Hero Section              | Your portrait photo                    |
-| `about.webp`           | About Section, OG Image   | Secondary photo used in about and SEO  |
-| `work-experience.webp` | Work Experience           | Background image for experience section|
-| `footer.png`           | Footer Section            | Image that transitions into the footer |
-| `footer-mobile.webp`   | Footer Section (mobile)   | Static background image for mobile     |
-| `footer-video.mp4`     | Footer Section (desktop)  | Looping background video for footer    |
-| `project-*.png`        | Projects Section          | One image per project in profile.json  |
+- **`data/profile.json`** — the source of truth for everything about me: name, tagline, bio, the roles and stats shown in the hero, my work history at Vizh AI Solutions, DTU, and QuickGhy, the project cards for MemoryForge and the Loan Recovery System, and links out to GitHub, LinkedIn, and everywhere else I exist online.
+- **`data/content.json`** — the site's own voice: section taglines, CTA copy, footer phrases. Not personal data, just the words holding the layout together.
+- **`app/globals.css`** — the visual identity. The `:root` tokens (`--accent`, `--hero-start`, `--hero-mid`, `--hero-end`, `--text-primary`) control the gradients and colors you see across the hero and footer.
+- **`lib/siteConfig.js`** — the canonical site URL, used for metadata and SEO.
+- **`public/assets/`** — the portrait, intro video, and background media that make the "cinematic" part of cinematic-portfolio actually true.
 
 ## Deployment
 
@@ -88,10 +87,12 @@ vercel
 
 ## License
 
-MIT. Free to fork, adapt, and use as your own portfolio.
+MIT. Originally forked from [Vaibhav Khushalani's cinematic-portfolio](https://github.com/VaibhavKhushalani/cinematic-portfolio) template.
 
-## Author
+<img src="assets/divider.svg" alt="" width="100%"/>
 
-**Vaibhav Khushalani** — Full Stack Engineer & AI Builder
+## Reach Me
 
-[GitHub](https://github.com/VaibhavKhushalani) &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/in/vaibhav-khushalani-760217136) &nbsp;|&nbsp; [Medium](https://medium.com/@vaibhavkhushalani) &nbsp;|&nbsp; [Instagram](https://www.instagram.com/vaibhav.create) &nbsp;|&nbsp; [YouTube](https://www.youtube.com/@vaibhav.create)
+**Divya Tripathi** — AI/ML Engineer & Backend Developer
+
+[GitHub](https://github.com/divyat2605) &nbsp;|&nbsp; [divya.tripathi.official2605@gmail.com](mailto:divya.tripathi.official2605@gmail.com)

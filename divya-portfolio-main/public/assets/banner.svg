@@ -1,0 +1,52 @@
+<svg viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F6E7D8"/>
+      <stop offset="35%" stop-color="#E7C7D0"/>
+      <stop offset="65%" stop-color="#C9A6D0"/>
+      <stop offset="100%" stop-color="#6E4C6E"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4A2E45"/>
+      <stop offset="100%" stop-color="#8A5A6B"/>
+    </linearGradient>
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF7E8" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#FFF7E8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="320" fill="url(#bg)"/>
+
+  <!-- soft glow accents -->
+  <circle cx="130" cy="70" r="90" fill="url(#starGlow)"/>
+  <circle cx="1080" cy="250" r="120" fill="url(#starGlow)"/>
+
+  <!-- scattered sparkles -->
+  <g fill="#FFF7E8" opacity="0.9">
+    <path d="M90 40 L96 58 L114 64 L96 70 L90 88 L84 70 L66 64 L84 58 Z"/>
+    <path d="M1050 60 L1054 72 L1066 76 L1054 80 L1050 92 L1046 80 L1034 76 L1046 72 Z"/>
+    <path d="M1130 200 L1135 214 L1149 219 L1135 224 L1130 238 L1125 224 L1111 219 L1125 214 Z"/>
+    <path d="M60 250 L64 260 L74 264 L64 268 L60 278 L56 268 L46 264 L56 260 Z"/>
+    <path d="M200 270 L203 278 L211 281 L203 284 L200 292 L197 284 L189 281 L197 278 Z"/>
+  </g>
+
+  <!-- name -->
+  <text x="600" y="150" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="600" fill="url(#textGrad)" letter-spacing="2">
+    Divya Tripathi
+  </text>
+
+  <!-- tagline -->
+  <text x="600" y="200" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="22" font-style="italic" fill="#4A2E45" opacity="0.85">
+    Curious enough to question, ambitious enough to build
+  </text>
+
+  <!-- underline flourish -->
+  <path d="M420 225 Q600 245 780 225" stroke="#8A5A6B" stroke-width="2" fill="none" opacity="0.7"/>
+
+  <!-- role chip -->
+  <rect x="430" y="250" width="340" height="34" rx="17" fill="#FFF7E8" opacity="0.55"/>
+  <text x="600" y="273" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="15" fill="#4A2E45" letter-spacing="1">
+    AI/ML ENGINEER  •  BACKEND DEVELOPER
+  </text>
+</svg>

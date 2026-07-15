@@ -1,0 +1,15 @@
+<svg viewBox="0 0 380 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lrGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8A5A6B"/>
+      <stop offset="100%" stop-color="#2E1F2E"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="376" height="96" rx="18" fill="url(#lrGrad)"/>
+  <rect x="2" y="2" width="376" height="96" rx="18" fill="none" stroke="#F6E7D8" stroke-opacity="0.2" stroke-width="1.5"/>
+  <circle cx="52" cy="50" r="26" fill="#F6E7D8" opacity="0.1"/>
+  <path d="M40 58 L48 44 L56 50 L64 36" fill="none" stroke="#F6E7D8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="64" cy="36" r="3" fill="#F6E7D8"/>
+  <text x="95" y="40" font-family="Georgia, serif" font-size="19" font-weight="600" fill="#F6E7D8">Agentic Loan Recovery</text>
+  <text x="95" y="66" font-family="Verdana, sans-serif" font-size="12.5" fill="#F6E7D8" opacity="0.85">Explainable risk AI — FastAPI · Random Forest · SHAP · Streamlit</text>
+</svg>

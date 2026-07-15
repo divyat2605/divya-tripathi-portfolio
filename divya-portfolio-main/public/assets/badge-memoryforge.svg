@@ -1,0 +1,15 @@
+<svg viewBox="0 0 380 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C9A6D0"/>
+      <stop offset="100%" stop-color="#4A2E45"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="376" height="96" rx="18" fill="url(#mfGrad)"/>
+  <rect x="2" y="2" width="376" height="96" rx="18" fill="none" stroke="#FFF7E8" stroke-opacity="0.25" stroke-width="1.5"/>
+  <circle cx="52" cy="50" r="26" fill="#FFF7E8" opacity="0.12"/>
+  <path d="M52 32 a18 18 0 1 0 0.001 0" fill="none" stroke="#FFF7E8" stroke-width="3"/>
+  <circle cx="52" cy="50" r="6" fill="#FFF7E8"/>
+  <text x="95" y="44" font-family="Georgia, serif" font-size="21" font-weight="600" fill="#FFF7E8">MemoryForge</text>
+  <text x="95" y="68" font-family="Verdana, sans-serif" font-size="12.5" fill="#FFF7E8" opacity="0.85">Agentic RAG API — LangGraph · FastAPI · Redis · Qdrant</text>
+</svg>
