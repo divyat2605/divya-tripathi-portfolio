@@ -3,20 +3,20 @@
     "tagline": "Portfolio 2026"
   },
   "hero": {
-    "taglineHighlight": "experiences",
-    "freelanceNote": "Available for freelance & full-time opportunities.",
+    "taglineHighlight": "build",
+    "freelanceNote": "Available for internships & full-time opportunities.",
     "availableLabel": "Available for work",
-    "pills": ["AI Architect", "Full Stack Engineer", "Cinematic Creator", "MERN Stack"],
-    "specialistStat": { "value": "AI + Full Stack", "label": "Specialist" }
+    "pills": ["AI/ML Engineer", "Backend Developer", "RAG Systems", "FastAPI"],
+    "specialistStat": { "value": "AI + Backend", "label": "Specialist" }
   },
   "interstitial": {
     "availabilityLabel": "Availability",
     "basedInLabel": "Based in",
-    "statLabels": ["Years\nexperience", "Projects\ndelivered", "Companies\nworked at"]
+    "statLabels": ["Internships\ncompleted", "CGPA\nscore", "LeetCode\nproblems solved"]
   },
   "footer": {
     "eyebrow": "Available for collaborations",
-    "ctaLines": ["Crafting modern", "digital products", "that feel"],
+    "ctaLines": ["Crafting intelligent", "backend systems", "that feel"],
     "ctaAccent": "alive."
   }
 }
