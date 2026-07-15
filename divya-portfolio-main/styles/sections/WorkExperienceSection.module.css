@@ -1,12 +1,17 @@
 /* ── Section ───────────────────────────────────── */
 .section {
   height: 100vh;
-  background: #080808;
+  background: linear-gradient(140deg, #fcf7ee 0%, #f7e5e5 100%);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
   z-index: 5;
+  --accent: #c68a97;
+  --accent-hover: #a86f79;
+  --text-dark: #3f3140;
+  --text-primary: #5f4752;
+  --text-muted: #7b6771;
 }
 
 .section::before {
@@ -16,7 +21,7 @@
   right: -0.04em;
   font-size: clamp(5rem, 11vw, 13rem);
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.022);
+  color: rgba(198, 138, 151, 0.06);
   letter-spacing: -0.05em;
   line-height: 1;
   pointer-events: none;
@@ -59,7 +64,7 @@
   font-size: var(--text-small);
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(95, 71, 82, 0.24);
   font-family: var(--font-geist-mono), monospace;
 }
 
@@ -89,11 +94,11 @@
     90deg,
     transparent 0%,
     var(--accent) 6%,
-    rgba(247, 147, 30, 0.55) 50%,
-    rgba(247, 147, 30, 0.2) 94%,
+    rgba(198, 138, 151, 0.45) 50%,
+    rgba(198, 138, 151, 0.14) 94%,
     transparent 100%
   );
-  box-shadow: 0 0 12px rgba(247, 147, 30, 0.28);
+  box-shadow: 0 0 12px rgba(198, 138, 151, 0.16);
   transform-origin: left center;
   pointer-events: none;
   z-index: 0;
@@ -121,7 +126,7 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: #0c0c0c;
+  background: #fffaf4;
   border: 2px solid var(--accent);
   display: flex;
   align-items: center;
@@ -130,8 +135,8 @@
   position: relative;
   z-index: 2;
   box-shadow:
-    0 0 0 6px rgba(247, 147, 30, 0.05),
-    0 0 22px rgba(247, 147, 30, 0.1);
+    0 0 0 6px rgba(198, 138, 151, 0.05),
+    0 0 22px rgba(198, 138, 151, 0.09);
 }
 
 /* Vertical connector - dot → card */
@@ -143,7 +148,7 @@
   transform: translateX(-50%);
   width: 2px;
   height: clamp(1rem, 2.5vh, 2rem);
-  background: linear-gradient(to bottom, rgba(247, 147, 30, 0.6), transparent);
+  background: linear-gradient(to bottom, rgba(198, 138, 151, 0.46), transparent);
 }
 
 .dotNum {
@@ -203,7 +208,7 @@
 .company {
   font-size: clamp(1.1rem, 2vw, 1.9rem);
   font-weight: 900;
-  color: #fff;
+  color: var(--text-dark);
   letter-spacing: -0.025em;
   line-height: 1.0;
   margin: 0.1rem 0 0;
@@ -215,7 +220,7 @@
 .role {
   font-size: var(--text-small);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.32);
+  color: var(--text-muted);
   margin: 0;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -229,7 +234,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  border-left: 2px solid rgba(247, 147, 30, 0.2);
+  border-left: 2px solid rgba(198, 138, 151, 0.2);
   min-width: 0;
   overflow: hidden;
   max-height: 5rem; /* GSAP expands on hover */
@@ -238,7 +243,7 @@
 .bullet {
   font-size: var(--text-body);
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.44);
+  color: var(--text-primary);
   flex-shrink: 0;
 }
 
@@ -255,9 +260,9 @@
   font-weight: 600;
   padding: 0.14rem 0.4rem;
   border-radius: 3px;
-  background: rgba(247, 147, 30, 0.07);
-  color: rgba(247, 147, 30, 0.8);
-  border: 1px solid rgba(247, 147, 30, 0.16);
+  background: rgba(198, 138, 151, 0.08);
+  color: var(--accent);
+  border: 1px solid rgba(198, 138, 151, 0.16);
   letter-spacing: 0.04em;
   white-space: nowrap;
 }

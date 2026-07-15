@@ -4,8 +4,13 @@
   top: 0;
   height: 100vh;
   z-index: 4;
-  background: #0d0d0d;
+  background: linear-gradient(140deg, #fcf7ee 0%, #f7e5e5 100%);
   overflow: hidden;
+  --accent: #c68a97;
+  --accent-hover: #a86f79;
+  --text-dark: #3f3140;
+  --text-primary: #5f4752;
+  --text-muted: #7b6771;
 }
 
 /* ── Top bar ─────────────────────────────────── */
@@ -40,9 +45,9 @@
   gap: 0.45rem;
   min-height: 2.35rem;
   padding: 0 0.95rem;
-  border: 1px solid rgba(247, 147, 30, 0.38);
+  border: 1px solid rgba(198, 138, 151, 0.32);
   border-radius: 6px;
-  background: rgba(247, 147, 30, 0.1);
+  background: rgba(255, 248, 241, 0.8);
   color: var(--accent);
   font-size: 0.62rem;
   font-weight: 800;
@@ -71,9 +76,9 @@
   letter-spacing: 0.06em;
 }
 
-.cCur { color: #fff; font-weight: 700; }
-.cSep { color: rgba(255, 255, 255, 0.22); }
-.cTot { color: rgba(255, 255, 255, 0.28); }
+.cCur { color: var(--text-dark); font-weight: 700; }
+.cSep { color: rgba(95, 71, 82, 0.22); }
+.cTot { color: rgba(95, 71, 82, 0.28); }
 
 /* ── Horizontal track ────────────────────────── */
 .track {
@@ -110,9 +115,9 @@
   inset: 0;
   background: linear-gradient(
     108deg,
-    rgba(4, 4, 4, 0.96) 0%,
-    rgba(4, 4, 4, 0.65) 42%,
-    rgba(4, 4, 4, 0.28) 100%
+    rgba(252, 247, 238, 0.94) 0%,
+    rgba(246, 228, 228, 0.78) 42%,
+    rgba(252, 247, 238, 0.34) 100%
   );
   z-index: 1;
 }
@@ -122,8 +127,8 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(4, 4, 4, 0.97) 0%,
-    rgba(4, 4, 4, 0.45) 40%,
+    rgba(252, 247, 238, 0.92) 0%,
+    rgba(246, 228, 228, 0.56) 40%,
     transparent 65%
   );
   z-index: 2;
@@ -132,7 +137,7 @@
 .slideVignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 65% 45%, transparent 30%, rgba(0, 0, 0, 0.55) 100%);
+  background: radial-gradient(ellipse at 65% 45%, transparent 30%, rgba(198, 138, 151, 0.14) 100%);
   z-index: 2;
 }
 
@@ -189,8 +194,8 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  background: rgba(247, 147, 30, 0.1);
-  border: 1px solid rgba(247, 147, 30, 0.25);
+  background: rgba(198, 138, 151, 0.12);
+  border: 1px solid rgba(198, 138, 151, 0.24);
   padding: 0.18rem 0.52rem;
   border-radius: 4px;
 }
@@ -198,7 +203,7 @@
 .title {
   font-size: clamp(2.2rem, 5.5vw, 5rem);
   font-weight: 900;
-  color: #fff;
+  color: var(--text-dark);
   letter-spacing: -0.03em;
   line-height: 0.92;
   margin: 0;
@@ -210,7 +215,7 @@
 .subtitle {
   font-size: var(--text-small);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.36);
+  color: var(--text-muted);
   margin: 0;
   letter-spacing: 0.06em;
 }
@@ -251,7 +256,7 @@
 .desc {
   font-size: var(--text-body);
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.52);
+  color: var(--text-primary);
   margin: 0;
   overflow: hidden;
   display: -webkit-box;
@@ -270,9 +275,9 @@
   font-weight: 600;
   padding: 0.2rem 0.52rem;
   border-radius: 4px;
-  background: rgba(247, 147, 30, 0.08);
+  background: rgba(198, 138, 151, 0.1);
   color: var(--accent);
-  border: 1px solid rgba(247, 147, 30, 0.18);
+  border: 1px solid rgba(198, 138, 151, 0.2);
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
@@ -296,7 +301,7 @@
 .progressBar {
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right, var(--accent), #ffb347);
+  background: linear-gradient(to right, var(--accent), #d8b28f);
   transform: scaleX(0);
   transform-origin: left center;
   will-change: transform;

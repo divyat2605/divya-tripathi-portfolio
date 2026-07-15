@@ -4,8 +4,15 @@
   top: 0;
   height: 100vh;
   z-index: 1;
-  background: #050505;
+  background: linear-gradient(140deg, #fcf7ee 0%, #f6e4e4 50%, #f0dfe5 100%);
   overflow: hidden;
+  --accent: #c68a97;
+  --accent-hover: #a86f79;
+  --text-dark: #3f3140;
+  --text-primary: #5f4752;
+  --text-muted: #7b6771;
+  --surface: rgba(255, 248, 241, 0.74);
+  --surface-strong: rgba(255, 248, 241, 0.9);
 }
 
 /* ── Video layers ───────────────────────────── */
@@ -36,9 +43,9 @@
   z-index: 2;
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.72) 0%,
-    rgba(0, 0, 0, 0.28) 50%,
-    rgba(0, 0, 0, 0.62) 100%
+    rgba(252, 247, 238, 0.95) 0%,
+    rgba(246, 228, 228, 0.58) 50%,
+    rgba(252, 247, 238, 0.85) 100%
   );
 }
 
@@ -67,7 +74,7 @@
   font-family: var(--font-baloo), sans-serif;
   font-size: clamp(3.5rem, 7.5vw, 8rem);
   font-weight: 800;
-  color: #fff;
+  color: var(--text-dark);
   line-height: 0.88;
   letter-spacing: -0.02em;
 }
@@ -75,7 +82,7 @@
 .role {
   font-size: clamp(0.75rem, 1.1vw, 0.95rem);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-top: 1.25rem;
@@ -89,14 +96,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.32);
+  background: rgba(255, 248, 241, 0.34);
   border: none;
   cursor: pointer;
   transition: background 0.2s;
 }
 
 .playOverlay:hover {
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(255, 248, 241, 0.54);
 }
 
 .playOverlay:hover circle {
@@ -112,7 +119,7 @@
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-primary);
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -162,19 +169,19 @@
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(198, 138, 151, 0.2);
+  background: var(--surface);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-primary);
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .ctrlBtn:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.45);
-  color: #fff;
+  background: var(--surface-strong);
+  border-color: rgba(198, 138, 151, 0.38);
+  color: var(--text-dark);
 }
 
 /* ── Scroll cue ─────────────────────────────── */
@@ -188,7 +195,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   cursor: pointer;
   pointer-events: all;
   transition: color 0.2s;
@@ -198,7 +205,7 @@
 }
 
 .scrollCue:hover {
-  color: #fff;
+  color: var(--text-dark);
 }
 
 .scrollLabel {

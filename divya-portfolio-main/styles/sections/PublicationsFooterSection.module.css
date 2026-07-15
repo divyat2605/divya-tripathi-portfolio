@@ -17,10 +17,15 @@
   top: 0;
   height: 100vh;
   overflow: hidden;
-  background: #080808;
+  background: linear-gradient(135deg, #fcf7ee 0%, #f6e4e4 100%);
   display: flex;
   flex-direction: column;
   z-index: 6;
+  --accent: #c68a97;
+  --accent-hover: #a86f79;
+  --text-dark: #3f3140;
+  --text-primary: #5f4752;
+  --text-muted: #7b6771;
 }
 
 /* ── Watermark ────────────────────────────────────────── */
@@ -155,7 +160,7 @@
 .heading {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 900;
-  color: #fff;
+  color: var(--text-dark);
   letter-spacing: -0.03em;
   line-height: 0.92;
   text-transform: uppercase;
@@ -224,7 +229,7 @@
 .title {
   font-size: clamp(0.82rem, 1.5vw, 1.15rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--text-dark);
   margin: 0;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -237,8 +242,8 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
-  background: rgba(247, 147, 30, 0.08);
-  border: 1px solid rgba(247, 147, 30, 0.22);
+  background: rgba(198, 138, 151, 0.1);
+  border: 1px solid rgba(198, 138, 151, 0.2);
   padding: 0.13rem 0.42rem;
   border-radius: 3px;
   white-space: nowrap;
@@ -248,7 +253,7 @@
 .desc {
   font-size: var(--text-body);
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.32);
+  color: var(--text-muted);
   margin: 0;
   overflow: hidden;
   display: -webkit-box;
@@ -284,7 +289,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
-  border: 1px solid rgba(247, 147, 30, 0.38);
+  border: 1px solid rgba(198, 138, 151, 0.3);
   border-radius: 999px;
   padding: 0.22rem 0.6rem;
   white-space: nowrap;
