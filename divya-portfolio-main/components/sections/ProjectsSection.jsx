@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, Fragment } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { gsap, ScrollTrigger } from '@/lib/gsap'
@@ -8,14 +8,19 @@ import profile from '@/data/profile.json'
 import styles from '@/styles/sections/ProjectsSection.module.css'
 
 const PROJECTS = profile.projects
+const PROJECTS_BASE_IDX = 3
+const AUTO_ADVANCE_SEC = 20
 
 export default function ProjectsSection() {
   const sectionRef  = useRef(null)
   const trackRef    = useRef(null)
   const contentRefs = useRef([])
   const bgRefs      = useRef([])
-  const counterRef  = useRef(null)
   const progressRef = useRef(null)
+  const slideIdxRef = useRef(0)
+  const autoTimerRef = useRef(null)
+  const scrollTweenRef = useRef(null)
+  const navigateRef = useRef(null)
   const [slideIdx, setSlideIdx] = useState(0)
 
   useEffect(() => {
@@ -29,14 +34,18 @@ export default function ProjectsSection() {
     contentRefs.current = contentRefs.current.slice(0, n)
     bgRefs.current      = bgRefs.current.slice(0, n)
 
-    // Slides 2+ hidden initially
     contentRefs.current.forEach((el, i) => {
-      if (el && i > 0) gsap.set(el, { opacity: 0, y: 30 })
+      if (!el) return
+      gsap.set(el, {
+        autoAlpha: i === 0 ? 1 : 0,
+        y: i === 0 ? 0 : 30,
+        zIndex: i === 0 ? 5 : 1,
+        overwrite: true,
+      })
     })
 
     const tl = gsap.timeline({ paused: true })
 
-    // Horizontal slide - xPercent is viewport-independent
     tl.to(track, {
       xPercent: -((n - 1) / n * 100),
       ease: 'none',
@@ -47,12 +56,19 @@ export default function ProjectsSection() {
       const curr   = contentRefs.current[i]
       const next   = contentRefs.current[i + 1]
       const nextBg = bgRefs.current[i + 1]
+      const revealAt = i + 0.44
 
       if (curr) {
+        tl.set(curr, { zIndex: 5, overwrite: true }, i)
         tl.to(curr, {
-          opacity: 0, y: -40, filter: 'blur(6px)',
-          duration: 0.2, ease: 'power2.in',
-        }, i + 0.30)
+          autoAlpha: 0,
+          y: -40,
+          filter: 'blur(6px)',
+          duration: 0.22,
+          ease: 'power2.in',
+          overwrite: true,
+        }, i + 0.22)
+        tl.set(curr, { zIndex: 1, filter: 'none' }, revealAt)
       }
 
       if (nextBg) {
@@ -64,7 +80,15 @@ export default function ProjectsSection() {
       }
 
       if (next) {
-        tl.set(next, { opacity: 1, y: 0 }, i + 0.44)
+        tl.set(next, { zIndex: 1, autoAlpha: 0, y: 30, overwrite: true }, i)
+        tl.set(next, { zIndex: 5 }, revealAt)
+        tl.to(next, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.18,
+          ease: 'power2.out',
+          overwrite: true,
+        }, revealAt)
 
         const meta  = next.querySelector(`.${styles.meta}`)
         const title = next.querySelector(`.${styles.title}`)
@@ -73,15 +97,72 @@ export default function ProjectsSection() {
         const tags  = next.querySelectorAll(`.${styles.tag}`)
         const btn   = next.querySelector(`.${styles.liveBtn}`)
 
-        if (meta)  tl.fromTo(meta,  { x: -10, opacity: 0 }, { x: 0, opacity: 1, duration: 0.25, ease: 'power2.out' }, i + 0.45)
-        if (title) tl.fromTo(title, { opacity: 0, y: 20 },  { opacity: 1, y: 0, duration: 0.45, ease: 'expo.out'   }, i + 0.48)
-        if (sub)   tl.fromTo(sub,   { y: 12, opacity: 0 },  { y: 0, opacity: 1, duration: 0.30, ease: 'power2.out' }, i + 0.54)
-        if (desc)  tl.fromTo(desc,  { y: 10, opacity: 0 },  { y: 0, opacity: 1, duration: 0.35, ease: 'power2.out' }, i + 0.58)
+        if (meta)  tl.fromTo(meta,  { x: -10, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.25, ease: 'power2.out', overwrite: true }, revealAt + 0.03)
+        if (title) tl.fromTo(title, { autoAlpha: 0, y: 20 },  { autoAlpha: 1, y: 0, duration: 0.45, ease: 'expo.out', overwrite: true   }, revealAt + 0.06)
+        if (sub)   tl.fromTo(sub,   { y: 12, autoAlpha: 0 },  { y: 0, autoAlpha: 1, duration: 0.30, ease: 'power2.out', overwrite: true }, revealAt + 0.12)
+        if (desc)  tl.fromTo(desc,  { y: 10, autoAlpha: 0 },  { y: 0, autoAlpha: 1, duration: 0.35, ease: 'power2.out', overwrite: true }, revealAt + 0.16)
         if (tags.length) {
-          tl.fromTo(tags,  { y: 6, opacity: 0 },  { y: 0, opacity: 1, duration: 0.25, ease: 'power2.out', stagger: 0.03 }, i + 0.65)
+          tl.fromTo(tags,  { y: 6, autoAlpha: 0 },  { y: 0, autoAlpha: 1, duration: 0.25, ease: 'power2.out', stagger: 0.03, overwrite: true }, revealAt + 0.23)
         }
-        if (btn)   tl.fromTo(btn,   { y: 8, opacity: 0 },  { y: 0, opacity: 1, duration: 0.30, ease: 'power2.out' }, i + 0.72)
+        if (btn)   tl.fromTo(btn,   { y: 8, autoAlpha: 0 },  { y: 0, autoAlpha: 1, duration: 0.30, ease: 'power2.out', overwrite: true }, revealAt + 0.30)
       }
+    }
+
+    function isProjectsInView() {
+      const scrollTop = scroller.scrollTop
+      const sectionTop = section.offsetTop
+      const sectionEnd = sectionTop + section.offsetHeight - window.innerHeight
+      return scrollTop >= sectionTop - 8 && scrollTop <= sectionEnd + 8
+    }
+
+    function clearAutoTimer() {
+      autoTimerRef.current?.kill()
+      autoTimerRef.current = null
+    }
+
+    function scheduleAutoAdvance() {
+      clearAutoTimer()
+      if (!isProjectsInView() || n <= 1) return
+
+      autoTimerRef.current = gsap.delayedCall(AUTO_ADVANCE_SEC, () => {
+        const nextIdx = (slideIdxRef.current + 1) % n
+        navigateToProject(nextIdx)
+      })
+    }
+
+    function navigateToProject(targetIdx) {
+      if (targetIdx < 0 || targetIdx >= n) return
+
+      clearAutoTimer()
+      scrollTweenRef.current?.kill()
+
+      const targetScroll = (PROJECTS_BASE_IDX + targetIdx) * window.innerHeight
+      const targetProgress = n > 1 ? targetIdx / (n - 1) : 0
+
+      scrollTweenRef.current = gsap.to(scroller, {
+        scrollTop: targetScroll,
+        duration: 1.0,
+        ease: 'power3.inOut',
+        overwrite: true,
+        onUpdate: () => {
+          const dist = scroller.scrollTop - section.offsetTop
+          const progress = Math.max(0, Math.min(1, dist / ((n - 1) * window.innerHeight)))
+          tl.progress(progress)
+        },
+        onComplete: () => {
+          tl.progress(targetProgress)
+          slideIdxRef.current = targetIdx
+          setSlideIdx(targetIdx)
+          if (progressRef.current) {
+            gsap.set(progressRef.current, {
+              scaleX: targetProgress,
+              transformOrigin: 'left center',
+              overwrite: true,
+            })
+          }
+          scheduleAutoAdvance()
+        },
+      })
     }
 
     const st = ScrollTrigger.create({
@@ -90,23 +171,43 @@ export default function ProjectsSection() {
       start:    'top top',
       end:      () => `+=${(n - 1) * window.innerHeight}`,
       onUpdate: (self) => {
+        if (scrollTweenRef.current?.isActive()) return
+
         tl.progress(self.progress)
 
         const activeIdx = Math.round(self.progress * (n - 1))
-        setSlideIdx(prev => prev !== activeIdx ? activeIdx : prev)
+        if (slideIdxRef.current !== activeIdx) {
+          slideIdxRef.current = activeIdx
+          setSlideIdx(activeIdx)
+          scheduleAutoAdvance()
+        }
 
         if (progressRef.current) {
           gsap.set(progressRef.current, {
             scaleX: self.progress, transformOrigin: 'left center', overwrite: true,
           })
         }
-
-        if (counterRef.current) counterRef.current.textContent = `0${activeIdx + 1}`
       },
+      onEnter: () => scheduleAutoAdvance(),
+      onEnterBack: () => scheduleAutoAdvance(),
+      onLeave: () => clearAutoTimer(),
+      onLeaveBack: () => clearAutoTimer(),
     })
 
-    return () => st.kill()
+    navigateRef.current = navigateToProject
+
+    return () => {
+      clearAutoTimer()
+      scrollTweenRef.current?.kill()
+      st.kill()
+      navigateRef.current = null
+    }
   }, [])
+
+  function handleCounterClick(idx) {
+    if (idx === slideIdx) return
+    navigateRef.current?.(idx)
+  }
 
   return (
     <div style={{ height: `${PROJECTS.length * 100}vh` }}>
@@ -122,9 +223,20 @@ export default function ProjectsSection() {
             </svg>
           </Link>
           <div className={styles.counter}>
-            <span ref={counterRef} className={styles.cCur}>01</span>
-            <span className={styles.cSep}> / </span>
-            <span className={styles.cTot}>0{PROJECTS.length}</span>
+            {PROJECTS.map((_, i) => (
+              <Fragment key={i}>
+                {i > 0 && <span className={styles.cSep}> / </span>}
+                <button
+                  type="button"
+                  className={i === slideIdx ? styles.cCur : styles.cJump}
+                  onClick={() => handleCounterClick(i)}
+                  aria-label={`Go to project ${i + 1}`}
+                  aria-current={i === slideIdx ? 'true' : undefined}
+                >
+                  0{i + 1}
+                </button>
+              </Fragment>
+            ))}
           </div>
         </div>
 

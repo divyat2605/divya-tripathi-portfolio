@@ -57,7 +57,7 @@ export const metadata = {
       'Aspiring Software Engineer specializing in backend systems, AI/ML, and Retrieval-Augmented Generation (RAG) using Python, FastAPI, and Docker. Available worldwide for opportunities.',
     images: [
       {
-        url: '/opengraph-image',
+        url: '/assets/speaker.png',
         width: 1200,
         height: 630,
         alt: 'Divya Tripathi | Software Engineer Portfolio',
@@ -69,7 +69,7 @@ export const metadata = {
     title: 'Divya Tripathi | Software Engineer',
     description:
       'Aspiring Software Engineer specializing in backend systems, AI/ML, and Retrieval-Augmented Generation (RAG) using Python, FastAPI, and Docker. Available worldwide for opportunities.',
-    images: ['/opengraph-image'],
+    images: ['/assets/speaker.png'],
   },
   robots: {
     index: true,
@@ -86,9 +86,6 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicons/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
       { url: '/favicons/favicon.ico', sizes: 'any' },
     ],
     apple: [
@@ -121,7 +118,8 @@ export default function RootLayout({ children }) {
               email: 'divya.tripathi.official2605@gmail.com',
               jobTitle: 'Software Engineer',
               sameAs: [
-                // add your real GitHub and LinkedIn URLs here
+                'https://github.com/divyat2605',
+                'https://www.linkedin.com/in/divya-tripathi-techenthusiast/',
               ],
             }),
           }}

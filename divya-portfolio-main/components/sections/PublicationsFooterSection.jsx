@@ -29,6 +29,8 @@ const MOBILE_SOCIAL_ICONS = {
 }
 const HERO_SOCIAL_LABELS = ['GitHub', 'LinkedIn', 'Instagram']
 
+const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(profile.email)}`
+
 function getGreeting() {
   const h = new Date().getHours()
   if (h < 12) return 'Good morning'
@@ -192,27 +194,33 @@ export default function PublicationsFooterSection() {
       <div ref={stickyRef} className={styles.sticky}>
 
         {/* ── Desktop footer image (replaces the old video background) ── */}
-        <Image
-          src="/assets/footer-landscape.png"
-          alt=""
-          fill
-          quality={100}
-          className={styles.glCanvas}
-          sizes="100vw"
-          priority={false}
-        />
+        <div className={styles.glCanvasWrap}>
+          <div className={styles.glCanvasInner}>
+            <Image
+              src="/assets/footer-landscape.png"
+              alt=""
+              fill
+              quality={100}
+              className={styles.glCanvas}
+              sizes="100vw"
+              priority={false}
+            />
+          </div>
+        </div>
 
         {/* ── Mobile background image (footer phase - mobile only) ── */}
         <div className={styles.mobileFooterBg}>
-          <Image
-            src="/assets/footer-mobile.webp"
-            alt=""
-            fill
-            quality={100}
-            className={styles.mobileFooterBgImg}
-            sizes="100vw"
-            priority={false}
-          />
+          <div className={styles.mobileFooterBgInner}>
+            <Image
+              src="/assets/footer-mobile.webp"
+              alt=""
+              fill
+              quality={100}
+              className={styles.mobileFooterBgImg}
+              sizes="100vw"
+              priority={false}
+            />
+          </div>
         </div>
 
         {/* ── Mobile permanent dark overlay - keeps image visually identical across all 3 sections ── */}
@@ -220,16 +228,18 @@ export default function PublicationsFooterSection() {
 
         {/* ── Floating image: starts left, moves to center ── */}
         <div ref={imageWrapRef} className={styles.imageWrap}>
-          <Image
-            src="/assets/footer.png"
-            alt=""
-            fill
-            quality={100}
-            className={styles.imageEl}
-            sizes="(max-width: 767px) 100vw, 50vw"
-            priority={false}
-          />
-          <div ref={imageOverlayRef} className={styles.imageOverlay} />
+          <div className={styles.imageInner}>
+            <Image
+              src="/assets/speaker.png"
+              alt=""
+              fill
+              quality={100}
+              className={styles.imageEl}
+              sizes="(max-width: 767px) 100vw, 50vw"
+              priority={false}
+            />
+            <div ref={imageOverlayRef} className={styles.imageOverlay} />
+          </div>
         </div>
 
         {/* ── Publication content (right of image) ── */}
@@ -276,31 +286,35 @@ export default function PublicationsFooterSection() {
         <div ref={interstitialRef} className={styles.interstitial} aria-hidden>
 
           <div className={styles.interstitialLeft}>
-            <div className={styles.interStat}>
-              <span className={styles.interLabel}>{content.interstitial.availabilityLabel}</span>
-              <span className={styles.interBig}>{profile.location.availability}</span>
-            </div>
-            <div className={styles.interDividerH} />
-            <div className={styles.interStat}>
-              <span className={styles.interLabel}>{content.interstitial.basedInLabel}</span>
-              <span className={styles.interBig}>{profile.location.based}</span>
+            <div className={styles.interPanel}>
+              <div className={styles.interStat}>
+                <span className={styles.interLabel}>{content.interstitial.availabilityLabel}</span>
+                <span className={styles.interBig}>{profile.location.availability}</span>
+              </div>
+              <div className={styles.interDividerH} />
+              <div className={styles.interStat}>
+                <span className={styles.interLabel}>{content.interstitial.basedInLabel}</span>
+                <span className={styles.interBig}>{profile.location.based}</span>
+              </div>
             </div>
           </div>
 
           <div className={styles.interstitialRight}>
-            {profile.stats.map((stat, i) => (
-              <Fragment key={stat.label}>
-                {i > 0 && <div className={styles.interDividerV} />}
-                <div className={styles.interNum}>
-                  <span className={styles.interCount}>{stat.value}</span>
-                  <span className={styles.interNumLabel}>
-                    {(content.interstitial.statLabels[i] ?? stat.label).split('\n').map((line, j) => (
-                      <Fragment key={j}>{line}{j === 0 && <br />}</Fragment>
-                    ))}
-                  </span>
-                </div>
-              </Fragment>
-            ))}
+            <div className={styles.interPanel}>
+              {profile.stats.map((stat, i) => (
+                <Fragment key={stat.label}>
+                  {i > 0 && <div className={styles.interDividerV} />}
+                  <div className={styles.interNum}>
+                    <span className={styles.interCount}>{stat.value}</span>
+                    <span className={styles.interNumLabel}>
+                      {(content.interstitial.statLabels[i] ?? stat.label).split('\n').map((line, j) => (
+                        <Fragment key={j}>{line}{j === 0 && <br />}</Fragment>
+                      ))}
+                    </span>
+                  </div>
+                </Fragment>
+              ))}
+            </div>
           </div>
 
           <div className={styles.interstitialBottom}>
@@ -329,7 +343,7 @@ export default function PublicationsFooterSection() {
             </h2>
             <p className={styles.mobileDesc}>{profile.description}</p>
             <div className={styles.mobileCtas}>
-              <a href={`mailto:${profile.email}`} className={styles.mobileTalkBtn}>
+              <a href={GMAIL_COMPOSE_URL} target="_blank" rel="noopener noreferrer" className={styles.mobileTalkBtn}>
                 Let&apos;s talk <FiArrowUpRight />
               </a>
             </div>
@@ -408,7 +422,7 @@ export default function PublicationsFooterSection() {
                   ))}
                   <span className={styles.ctaAccent}>{content.footer.ctaAccent}</span>
                 </p>
-                <a href={`mailto:${profile.email}`} className={styles.talkBtn}>
+                <a href={GMAIL_COMPOSE_URL} target="_blank" rel="noopener noreferrer" className={styles.talkBtn}>
                   Let&apos;s talk →
                 </a>
               </div>
