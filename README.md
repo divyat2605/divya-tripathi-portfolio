@@ -51,7 +51,7 @@ Details, links, and write-ups for all of these live on the site itself.
 
 ```bash
 git clone https://github.com/divyat2605/divya-tripathi-portfolio.git
-cd cinematic-portfolio
+cd divya-portfolio-main
 npm install
 npm run dev
 ```
